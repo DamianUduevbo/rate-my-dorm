@@ -1,34 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import Dropdown from './components/Dropdown';
-import SearchBar from './components/SearchBar';
-
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Homepage from './pages/Homepage';
+import Schools from './pages/Schools';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Welcome to RateMyDorms
-          <p>
-            <SearchBar placeholder="Search for a college"></SearchBar>
-          </p>
-          
-        </p>
-        
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Routes>
+            <Route exact path="/" element={<Homepage/>} />
+            <Route exact path="/schools-list" element={<Schools/>} />
+          </Routes>
+        </header>
+      </div>
+    </Router>
   );
 }
+
 
 export default App;
