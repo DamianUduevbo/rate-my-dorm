@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../components/images/logo.svg';
 import SearchBar from '../components/SearchBar';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link} from 'react-router-dom';
 import Schools from './Schools';
 
 const Homepage = () => {

@@ -5,7 +5,7 @@ import * as imgs from '../components/images/neu.png';
 const Schools = () => {
   return <div>
       <div>
-          <SchoolIcon image={null} name="Northeastern University" />
+          <SchoolIcon image={imgs} name="Northeastern University" />
       </div>
       {" \n \n"}
       <div>
