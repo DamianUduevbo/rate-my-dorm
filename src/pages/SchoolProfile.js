@@ -2,7 +2,7 @@ import React from 'react';
 import { ButtonFoundDorm } from '../components/Button';
 import * as imgs from '../components/images/white-hall.png'
 
-const SchoolProfile_proto = (props) => {
+const SchoolProfileProto = (props) => {
   return <div>
       <h1 id='school-name'>{props.SchoolName}</h1>
       <div>
@@ -57,7 +57,7 @@ const SchoolProfile_proto = (props) => {
   </div>;
 };
 
-const SchoolProfile = (props) => {
+export const SchoolProfile = (props) => {
   return <div>
     <h1 id='school-name'>{props.SchoolName}</h1>
     <div>
@@ -69,4 +69,4 @@ const SchoolProfile = (props) => {
     
   </div>
 }
-export default SchoolProfile_proto;
+export default SchoolProfileProto;

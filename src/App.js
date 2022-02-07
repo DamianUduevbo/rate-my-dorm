@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import Schools from './pages/Schools';
 import AddSchool from './pages/AddSchool';
-import SchoolProfile_proto from './pages/SchoolProfile-proto';
+import SchoolProfileProto from './pages/SchoolProfile';
+import ErrorPage from './pages/ErrorPage';
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
             <Route exact path="/" element={<Homepage/>} />
             <Route exact path="/schools-list" element={<Schools/>} />
             <Route exact path="/add-school" element={<AddSchool/>} />
-            <Route exact path="/school-page" element={<SchoolProfile_proto SchoolName={"Northeastern Univeristy"}/>} />
+            <Route exact path="/school-page" element={<SchoolProfileProto SchoolName={"Northeastern Univeristy"}/>} />
+            <Route exact path="*" element={<ErrorPage/>} />
           </Routes>
         </header>
       </div>
