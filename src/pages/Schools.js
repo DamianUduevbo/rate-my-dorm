@@ -1,18 +1,18 @@
 import React from 'react';
-import SchoolIcon from '../components/SchoolIcon';
-import * as imgs from '../components/images/neu.png';
+import neu from '../components/images/neu.png';
+import bu from '../components/images/bu.png';
+import Button from '../components/Button';
 
 const Schools = () => {
-  return <div>
-      <div>
-          <SchoolIcon image={imgs} name="Northeastern University" />
-      </div>
-      {" \n \n"}
-      <div>
-          <SchoolIcon image={null} name="Boston University" />
-      </div>
-      
-  </div>;
-};
+    return <div>
+        <Button id="neu-boston" style={ {color: 'white', backgroundColor: 'transparent'} }
+                src={neu} alt="Northeastern-University.png" 
+                schoolName="Northeastern University" />
+        {" \n \n"}
+        <Button id="bu-boston" style={ {color: 'white', backgroundColor: 'transparent'} }
+                src={bu} alt="Boston-University.png" 
+                schoolName="Boston University" />
+    </div>
+}
 
 export default Schools;

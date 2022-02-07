@@ -1,4 +1,5 @@
 import React from 'react';
+import { ButtonFoundDorm } from '../components/Button';
 import * as imgs from '../components/images/white-hall.png'
 
 const SchoolProfile_proto = (props) => {
@@ -12,9 +13,11 @@ const SchoolProfile_proto = (props) => {
         <button id='WHT' style={{color: 'white', backgroundColor: 'transparent'}} onClick={() => console.log("Redirect to White's page")}>
           <div>White Hall</div> {/* props.dormName */}
           <img src={imgs} alt='WHITE-HALL.png' style={ {height: 250, width: 250} }/>
+          
           <div >Rating - 3.0 Stars</div> {/* props.Rating */}
         </button>
         {"\n"}
+
         <button id='STN' style={{color: 'white', backgroundColor: 'transparent'}} >
           <div>Stetson North</div> {/* props.dormName */}
           <img src={imgs} alt='East-Village.png' style={ {height: 250, width: 250} }/>
@@ -45,11 +48,25 @@ const SchoolProfile_proto = (props) => {
           <div >Rating - 4.3 Stars</div> {/* props.Rating */}
         </button>
         {"\n"}
-
-        
+        <ButtonFoundDorm id="IV" src={imgs} dormName="International Village"
+                          alt="International-Village.png"
+                          style={{color: 'white', backgroundColor: 'transparent'}}
+                          rating={5.0} />
         {props.DormsHTML}
       </div>
   </div>;
 };
 
+const SchoolProfile = (props) => {
+  return <div>
+    <h1 id='school-name'>{props.SchoolName}</h1>
+    <div>
+      <ButtonFoundDorm id="IV" src={imgs} dormName="International Village"
+                          alt="International-Village.png"
+                          style={{color: 'white', backgroundColor: 'transparent'}}
+                          rating={5.0} />
+    </div>
+    
+  </div>
+}
 export default SchoolProfile_proto;

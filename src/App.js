@@ -12,12 +12,13 @@ function App() {
       <div className="App">
         <header className="App-header">
           <div>
-            <Link to="/" type='button' style={Stylez.navBarLink} >Home</Link> {"       "}
-            <Link to="/schools-list" type='button' style={Stylez.navBarLink} >Schools</Link> {"       "}
-            <Link to="/add-school" type='button' style={Stylez.navBarLink} >Add Schools (dev)</Link> {"       "}
-            <Link to="/school-page" type='button' style={Stylez.navBarLink} >School Profile Page (dev)</Link>
+            <nav>
+              <Link to="/" type='button' style={Stylez.navBarLink} >Home</Link> {"       "}
+              <Link to="/schools-list" type='button' style={Stylez.navBarLink} >Schools</Link> {"       "}
+              <Link to="/add-school" type='button' style={Stylez.navBarLink} >Add Schools (dev)</Link> {"       "}
+              <Link to="/school-page" type='button' style={Stylez.navBarLink} >School Profile Page (dev)</Link>
+            </nav>
           </div>
-          
           <Routes>
             <Route exact path="/" element={<Homepage/>} />
             <Route exact path="/schools-list" element={<Schools/>} />
