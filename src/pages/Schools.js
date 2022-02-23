@@ -29,21 +29,21 @@ const Schools = () => {
         return <Button id={id} style ={style} src={src} alt={id+".png"} schoolName={schoolName}
                 onClick = {() => {navigate(nav)} } />
     }
-    
-    /*
+
+    /* */
     const searchAlgo = (t) => {
-        // listOfSchools = document.getElementById("List of schools")
+        listOfSchools = document.getElementById("List of schools")
     
-        // listOfSchools.map( v => console.log(v) )
+        listOfSchools.map( (v) => console.log(v) )
         // map( return <Button of school> {" \n"} )  
     }
-    */
+    
 
     return <div>
         {/* EXAMPLE OF HOW THIS WILL LOOK. USE A DB AND AN ALGO TO LOAD THESE */}
         
         <h1>
-            <SearchBar placeholder="Search for a college" onChange={() => console.log("E")}></SearchBar>
+            <SearchBar placeholder="Search for a college" onChange={() => }></SearchBar>
         </h1>
         <div id="List of schools">
             {colleges.map( (v) => {

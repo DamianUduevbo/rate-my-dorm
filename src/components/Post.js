@@ -3,7 +3,7 @@ import React from 'react'
 export const Post = (props) => {
   return (
     <div>
-      <img src={props.src}></img>
+      <img src={props.src} alt="image.png"/>
       <div id="tags">
         {props.tags}
       </div>
@@ -13,7 +13,7 @@ export const Post = (props) => {
 
 const PostProto = (props) => {
     return <div>
-        <img src={props.src}></img>
+        <img src={props.src} alt="image.png"/>
         <div id="tags">
           {["#Freshman\n", "#Sorry\n"]}
         </div>
