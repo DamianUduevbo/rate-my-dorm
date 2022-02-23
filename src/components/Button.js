@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
 
 export const ButtonFoundDorm = (props) => {
+    // const navigate = useNavigate();
     // {color: 'white', backgroundColor: 'transparent'}
-    return <button id={props.id} style={props.style} >
+    return <button id={props.id} style={props.style} onClick={props.onClick}>
         <div> {props.dormName} </div> {/* props.dormName */}
         <img src={props.src} alt={props.alt} style={ {height: 250, width: 250} }/>
         <div >Rating - {props.rating} Star(s)</div> {/* props.Rating */}
@@ -12,8 +13,7 @@ export const ButtonFoundDorm = (props) => {
 
 const Button = (props) => {
     // {color: 'white', backgroundColor: 'transparent'}
-    return <button id={props.id} style={props.style} onClick={() => 
-                    {return <Link to="/school-page" type='button' >School Profile Page (dev)</Link>}}>
+    return <button id={props.id} style={props.style} onClick={props.onClick} >
         <img src={props.src} alt={props.alt} style={ {height: 250, width: 250} }/>
         <div > {props.schoolName} </div> {/* props.Rating */}
     </button>

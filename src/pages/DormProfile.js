@@ -28,9 +28,10 @@ const DormProfileProto = (props) => {
   </div>;
 };
 
-const DormProfile = (props) => {
+export const DormProfile = (props) => {
   return <div>
     DORM PAGE
   </div>;
 };
+
 export default DormProfileProto;
