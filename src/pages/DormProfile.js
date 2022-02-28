@@ -1,7 +1,8 @@
 import React from 'react';
 import PostProto from '../components/Post';
+import * as Postings from '../components/Post';
 
-const DormProfileProto = (props) => {
+export const DormProfileProto = (props) => {
   return <div>
     <h1>
       <p>WHITE HALL</p>
@@ -30,7 +31,28 @@ const DormProfileProto = (props) => {
 
 export const DormProfile = (props) => {
   return <div>
-    DORM PAGE
+    <h1>
+      <p>{props.dormName}</p>
+      <div>
+        <div>{props.description}</div>
+        <div>Et al.</div>
+    </div>
+    </h1>
+    
+
+    <div>
+      Featured Gallery
+      <div>
+        <Postings.Post src={props.src} />
+      </div>
+    </div>
+    
+    <div>
+      Gallery
+      <div>
+        {props.Posts /* THIS IS AN ARRAY OF MAPS */}
+      </div>
+    </div>
   </div>;
 };
 

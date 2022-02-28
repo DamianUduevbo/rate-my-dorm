@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ButtonFoundDorm } from '../components/Button';
 import * as imgs from '../components/images/white-hall.png'
 
-const SchoolProfileProto = (props) => {
+export const SchoolProfileProto = (props) => {
   const navigate = useNavigate()
   return <div>
       <h1 id='school-name'>{props.SchoolName}</h1>
