@@ -11,10 +11,10 @@ export const ButtonFoundDorm = (props) => {
     </button>
 };
 
-const Button = (props) => {
+export const Button = (props) => {
     // {color: 'white', backgroundColor: 'transparent'}
-    return <button id={props.id} style={props.style} onClick={props.onClick} >
-        <img src={props.src} alt={props.alt} style={ {height: 250, width: 250} }/>
+    return <button id={props.id} style={props.style} tag="school-on-schools-page" onClick={props.onClick} >
+        <img src={props.src} alt={props.alt} style={ {height: 250, width: 250, whiteSpace: "normal"} }/>
         <div > {props.schoolName} </div> {/* props.Rating */}
     </button>
 };

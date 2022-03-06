@@ -5,7 +5,7 @@ import * as imgs from '../components/images/white-hall.png'
 
 export const SchoolProfileProto = (props) => {
   const navigate = useNavigate()
-  return <div>
+  return (<div>
       <h1 id='school-name'>{props.SchoolName}</h1>
       <div>
         {/* THIS IS AN EXAMPLE OF WHAt props.DormsHTML RETURNS
@@ -23,12 +23,13 @@ export const SchoolProfileProto = (props) => {
                           rating={5.0} />
         {props.DormsHTML}
       </div>
-  </div>;
+  </div>)
 };
 
 // 
-export const SchoolProfile = (props) => {
-  return <div>
+export const SchoolProfile = (props, dorms) => {
+  
+  return (<div>
     <h1 id='school-name'>{props.SchoolName}</h1>
     <div>
       <ButtonFoundDorm id="IV" src={imgs} dormName="International Village"
@@ -36,7 +37,6 @@ export const SchoolProfile = (props) => {
                           style={{color: 'white', backgroundColor: 'transparent'}}
                           rating={5.0} />
     </div>
-    
-  </div>
+  </div>)
 }
 export default SchoolProfileProto;

@@ -1,17 +1,13 @@
-import App from '../App';
-
 import React from 'react';
-import ReactDOM from 'react';
-import neu from '../components/images/neu.png';
-import bu from '../components/images/bu.png';
 import Button from '../components/Button';
 import SearchBar from '../components/SearchBar';
 import {Route, useNavigate} from 'react-router-dom';
-import {SchoolProfileProto, SchoolProfile} from './SchoolProfile'
+import * as Profiles from './Profiles';
 
 import { db } from '../firebase-config';
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
+import { list } from 'firebase/storage';
 //#RATIO MY PROFESSOR
 
 
@@ -31,9 +27,11 @@ const Schools = () => {
         getColleges();
     }, [])
 
-    const createRoute1 = (nav, schoolName) => {
+    const createRoute1 = (nav, schoolName, dormName) => {
         //const parentRoute = ReactDOM.findDOMNode() //App.getElementById("PARENT-ROUTE");
-        const rt = <Route exact path={nav} element={<SchoolProfileProto SchoolName={schoolName}/>} />
+        const rt = <Route exact path={nav} 
+                        element={<Profiles.SchoolProfile SchoolName={schoolName} dormName={dormName} />
+                        } />
         //console.log();
         //if (parentRoute.contains(rt) == false) {
         //parentRoute.appendChild(rt);
@@ -42,33 +40,33 @@ const Schools = () => {
     }
 
     const createButton = (id, style, src, schoolName, nav, key) => {
-        return <Button id={id} style ={style} src={src} alt={id+".png"} schoolName={schoolName}
+        return <Button id={id} style ={style} src={src} alt={id+".png"} schoolName={schoolName} tag="school-on-schools-page"
                 onClick = { () => {
                     createRoute1(nav, schoolName);
                     navigate(nav);
                     console.log(nav); } }
-                key={key}/>
-    }
-
-    const loadAllColleges = () => {
-        colleges.map( (v) => {
-            return createButton(v.id, 
-                {color: 'white', backgroundColor: 'transparent'}, 
-                null, v._name, v.navigate, v.key+Math.floor(Math.random() * 88000)) //<div id={v.id}> {v._name} </div>
-        })
+                key={key} />
     }
     
     //const [pageList, setPageList] = useState( () => loadAllColleges() )
     
     /* */
-    const searchAlgo = (t) => {
-        let listOfSchools = document.getElementById("List of schools")
+    const searchAlgo = () => {
+        let listOfSchools = document.getElementById("List of schools");
+        listOfSchools = Array.from(listOfSchools)
+        let searchBar = document.getElementById("search-bar");
+        //console.log(searchBar.value)
+
         listOfSchools.map( (v) => {
-            if (v.schoolName.includes(t)===false) { // if v.schoolName doesnt contain t remove t
+            if (v.schoolName.includes(searchBar.value)===false) {
+                console.log(searchBar.value)
                 v.remove(); // remove
             }
-        })
-        // map( return <Button of school> {" \n"} )  
+            else {
+                console.log("else")
+            }
+          }
+        )
     }
     
     
@@ -77,13 +75,16 @@ const Schools = () => {
         {/* EXAMPLE OF HOW THIS WILL LOOK. USE A DB AND AN ALGO TO LOAD THESE */}
         
         <h1>
-            <SearchBar placeholder="Search for a college" /* onChange={() => searchAlgo(this.textContent)} */></SearchBar>
+            <SearchBar id="search-bar" placeholder="Search for a college"
+                onChange={ () => { } } />
         </h1>
         <div id="List of schools">
             {/* () => loadAllColleges() USE THIS INSTEAD OF THAT \/ */}
             
             {colleges.map( (v) => {
-                return createButton(v.id, {color: 'white', backgroundColor: 'transparent'}, null, v._name, v.navigate, Math.floor(Math.random() * 88000)) //<div id={v.id}> {v._name} </div>
+                console.log("Lima")
+                return createButton( v.id, {color: 'white', backgroundColor: 'transparent'},
+                                null, v._name, v.navigate, Math.floor(Math.random() * 88000))
                 })}
             
             { /*

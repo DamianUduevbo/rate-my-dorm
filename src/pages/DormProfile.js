@@ -3,7 +3,7 @@ import PostProto from '../components/Post';
 import * as Postings from '../components/Post';
 
 export const DormProfileProto = (props) => {
-  return <div>
+  return (<div>
     <h1>
       <p>WHITE HALL</p>
       <div>
@@ -11,7 +11,6 @@ export const DormProfileProto = (props) => {
         <div>Et al.</div>
     </div>
     </h1>
-    
 
     <div>
       Featured Gallery
@@ -26,11 +25,11 @@ export const DormProfileProto = (props) => {
         [POSTS w/ COMMENTS]
       </div>
     </div>
-  </div>;
+  </div>)
 };
 
 export const DormProfile = (props) => {
-  return <div>
+  return (<div>
     <h1>
       <p>{props.dormName}</p>
       <div>
@@ -38,22 +37,19 @@ export const DormProfile = (props) => {
         <div>Et al.</div>
     </div>
     </h1>
-    
-
     <div>
       Featured Gallery
       <div>
         <Postings.Post src={props.src} />
       </div>
     </div>
-    
     <div>
       Gallery
       <div>
         {props.Posts /* THIS IS AN ARRAY OF MAPS */}
       </div>
     </div>
-  </div>;
+  </div>)
 };
 
 export default DormProfileProto;
