@@ -7,7 +7,6 @@ import * as Postings from '../components/Post';
 import * as imgs from '../components/images/white-hall.png'
 
 
-
 export const SchoolProfile = (props) => {
   const navigate = useNavigate()
 
@@ -17,15 +16,14 @@ export const SchoolProfile = (props) => {
   }
 
   const createDormButton = (schoolName, dormName, img, iD, rating, nav) => {
-    return (<Buttons.ButtonFoundDorm id={ schoolName + "/" + dormName }
+    return (<Buttons.ButtonFoundDorm id={ /* schoolName + "/" + */ dormName }
                             src={imgs} dormName={dormName} alt={iD+".png"}
                             style={{color: 'white', backgroundColor: 'transparent'}}
                             rating={rating} 
                             onClick={() => {
                                 //nav = nav.replace(nav[0], "")
                                 console.log("ALPHA: " + nav);
-                                createRoute1(nav, dormName)
-                                navigate(nav);
+                                return createRoute1(nav, dormName) && navigate(nav);
                             }}
                             key={Math.floor(Math.random() * 88000)} />)
   }
@@ -40,10 +38,11 @@ export const SchoolProfile = (props) => {
           console.log("Oscar: " + props.SchoolName+"/"+v.dormName.replace(" ", "-") )
           return createDormButton(props.SchoolName,
              v.dormName, null, v.id, v.rating,
-             props.parentNav+"/"+v.dormName.replace(" ", "-")
+             "/"+v.dormName.replace(" ", "-")
              //props.parentNav+"/"+v.dormName.replace(" ", "-")
-          )})
-        }
+          )
+        })
+      }
     </div>
   </div>)
 }

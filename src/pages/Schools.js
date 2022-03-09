@@ -85,7 +85,8 @@ const Schools = () => {
                 console.log("Lima")
                 return createButton( v.id, {color: 'white', backgroundColor: 'transparent'},
                                 null, v._name, v.navigate, Math.floor(Math.random() * 88000))
-                })}
+                })
+            }
             
             { /*
             <Button id="neu-boston" style={ {color: 'white', backgroundColor: 'transparent'} }

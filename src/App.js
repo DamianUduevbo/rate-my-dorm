@@ -19,7 +19,7 @@ function App() {
   const [colleges, setColleges] = useState([]);
   //const [dorms, setDorms] = useState([]);
   const collegeCollection = collection(db, "schools")
-  //const dormCollection = collection(db, "dorms")
+  const dormCollection = collection(db, collegeCollection.collection["school"])
   
   useEffect( () => { 
     const getColleges = async () => {
@@ -29,23 +29,27 @@ function App() {
       ))
     }
     getColleges();
+
   }, [] ); // DO NOT REMOVE []
 
   /*
-  const createRoute = (props) => {
-    console.log("Went to the call")
-    return <Route exact path={props.nav} element={props.htmlStuff} key={props.key+randomKey} />
-  }
   */
+  const createRouteDormProfile = (pathName, dormName) => {
+    console.log("Went to the call: " + pathName)
+    return <Route exact path={ pathName }
+            element={<Profiles.DormProfile dormName={dormName} />} 
+            key={randomKey} />
+  }
 
   const loopDorms = (dorms, schoolName) => {
     for (let i in dorms) {
-      console.log("Sierra: " + dorms[i].dormName.replace(" ", "-") )
-
-      return (<Route exact path={ dorms[i].dormName.replace(" ", "-") }
-        element={<Profiles.DormProfile dormName={dorms[i].dormName} />} 
-        key={randomKey} />)
+      if ( dorms[i] !== undefined ) {
+        let newDormName = dorms[i].dormName.replace(" ", "-")
+        console.log("Sierra: " + newDormName )
+        createRouteDormProfile("/"+newDormName, dorms[i].dormName)
+      }
     }
+    console.log("Loop Done")
   }
 
   return (
@@ -68,7 +72,10 @@ function App() {
             {/* () => {loadAllRoutes("college"); console.log("Hi mate")}  */}
             {/* USE THIS \/ FOR NOW BECAUSE THAT /\ WONT WORK FROM SOME REASON (prolly need typescript)*/}
             {colleges.map( (v) => {
-              loopDorms(v.dorms, v._name);
+              {v.dorms.map(n => {
+
+                }
+              )}
               return <Route exact path={v.navigate}
                 element={<Profiles.SchoolProfile SchoolName={v._name} dormsList={v.dorms} parentNav={v.navigate} />}
                 key={randomKey}
@@ -78,10 +85,11 @@ function App() {
             {/* ROUTE TO ALL DORMS */}
             {/* () => loadAllRoutes("dorms")  UNCOMMENT TO RUN FIREBASE */}
             {colleges.map( (v) => {
-                //console.log("Delta");
-                //loopDorms(v.dorms, v._name);
-              })
-            }
+              if (v.dorms !== undefined || v.dorms !== undefined) {
+                //console.log("Delta1: " + v.dorms[i].dormName);
+                loopDorms(v.dorms, v._name);
+              }
+            })}
             <Route exact path="*" element={<ErrorPage/>} />
           </Routes>
         </header>
@@ -90,7 +98,7 @@ function App() {
     )
 }
 
-const Stylez = {
+export const Stylez = {
   navBarLink: {
     color: '#FFF',
     background: '#FF4E32',
