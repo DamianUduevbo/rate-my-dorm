@@ -19,7 +19,7 @@ function App() {
   const [colleges, setColleges] = useState([]);
   //const [dorms, setDorms] = useState([]);
   const collegeCollection = collection(db, "schools")
-  const dormCollection = collection(db, collegeCollection.collection["school"])
+  //const dormCollection = collection(db, collegeCollection.collection["school"])
   
   useEffect( () => { 
     const getColleges = async () => {
@@ -72,10 +72,19 @@ function App() {
             {/* () => {loadAllRoutes("college"); console.log("Hi mate")}  */}
             {/* USE THIS \/ FOR NOW BECAUSE THAT /\ WONT WORK FROM SOME REASON (prolly need typescript)*/}
             {colleges.map( (v) => {
-              {v.dorms.map(n => {
-
+              console.log("Colleges.MAPPED")
+              if (v.dorms !== undefined) {
+                {v.dorms.map(n => {
+                    //console.log(n)
+                    console.log("v.dorms.MAPPED")
+                    let newName = n.dormName.replace(" ", "-")
+                    return <Route exact path={newName}
+                      element={<Profiles.DormProfile dormName={newName} description={"fjgyhi"} src={null} />}
+                      key={randomKey}
+                      />
+                  })
                 }
-              )}
+              }
               return <Route exact path={v.navigate}
                 element={<Profiles.SchoolProfile SchoolName={v._name} dormsList={v.dorms} parentNav={v.navigate} />}
                 key={randomKey}
@@ -87,7 +96,7 @@ function App() {
             {colleges.map( (v) => {
               if (v.dorms !== undefined || v.dorms !== undefined) {
                 //console.log("Delta1: " + v.dorms[i].dormName);
-                loopDorms(v.dorms, v._name);
+                //loopDorms(v.dorms, v._name);
               }
             })}
             <Route exact path="*" element={<ErrorPage/>} />

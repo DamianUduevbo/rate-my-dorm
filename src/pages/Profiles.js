@@ -38,7 +38,7 @@ export const SchoolProfile = (props) => {
           console.log("Oscar: " + props.SchoolName+"/"+v.dormName.replace(" ", "-") )
           return createDormButton(props.SchoolName,
              v.dormName, null, v.id, v.rating,
-             "/"+v.dormName.replace(" ", "-")
+             v.dormName.replace(" ", "-")
              //props.parentNav+"/"+v.dormName.replace(" ", "-")
           )
         })
