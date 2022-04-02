@@ -7,6 +7,8 @@ import * as Postings from '../components/Post';
 import * as imgs from '../components/images/white-hall.png'
 
 
+const randomKey = () => {return Math.floor(Math.random() * 88000)}
+
 export const SchoolProfile = (props) => {
   const navigate = useNavigate()
 
@@ -14,16 +16,15 @@ export const SchoolProfile = (props) => {
     const rt = <Route exact path={nav} element={<DormProfileProto dormName={dormName} />} />
     return rt;
   }
-
+  
   const createDormButton = (schoolName, dormName, img, iD, rating, nav) => {
-    return (<Buttons.ButtonFoundDorm id={ /* schoolName + "/" + */ dormName }
+    return (<Buttons.ButtonFoundDorm id={dormName}
                             src={imgs} dormName={dormName} alt={iD+".png"}
                             style={{color: 'white', backgroundColor: 'transparent'}}
                             rating={rating} 
                             onClick={() => {
-                                //nav = nav.replace(nav[0], "")
-                                console.log("ALPHA: " + nav);
-                                return createRoute1(nav, dormName) && navigate(nav);
+                                navigate(nav)
+                                //return createRoute1(nav, dormName) && navigate(nav);
                             }}
                             key={Math.floor(Math.random() * 88000)} />)
   }
@@ -31,16 +32,14 @@ export const SchoolProfile = (props) => {
   let ovrall = 0
   return (<div>
     <h1 id='school-name'>{props.SchoolName}</h1>
-    <h1 id='ovr-rating'>Overall Rating: {props.overallRating / props.dormsList.length }</h1>
+    <h1 id='ovr-rating'>Overall Rating: {props.overallRating / props.dormsList.length } / 5</h1>
     <div>
       {props.dormsList.map( (v) => {
-          ovrall = ovrall + v.rating
-          console.log("Oscar: " + props.SchoolName+"/"+v.dormName.replace(" ", "-") )
-          return createDormButton(props.SchoolName,
-             v.dormName, null, v.id, v.rating,
-             v.dormName.replace(" ", "-")
-             //props.parentNav+"/"+v.dormName.replace(" ", "-")
-          )
+        ovrall = ovrall + v.rating
+        //console.log("Oscar: " + props.SchoolName+"/"+v.dormName.replace(" ", "-") )
+        return createDormButton(props.SchoolName,
+          v.dormName, null, v.id, v.rating,
+          v.dormName.replace(" ", "-"))
         })
       }
     </div>
@@ -48,18 +47,18 @@ export const SchoolProfile = (props) => {
 }
 
 export const DormProfile = (props) => {
-  return (<div>
+  return (<div >
     <h1>
       <p>{props.dormName}</p>
       <div>
         <div>{props.description}</div>
-        <div>Et al.</div>
+        <div>other stuff here</div>
     </div>
     </h1>
     <div>
       Featured Gallery
       <div>
-        <Postings.Post src={props.src} />
+        <Postings.Post src={props.src} key={Math.floor(Math.random() * 88000)} />
       </div>
     </div>
     <div>

@@ -6,7 +6,7 @@ export const ButtonFoundDorm = (props) => {
     // {color: 'white', backgroundColor: 'transparent'}
     return <button id={props.id} style={props.style} onClick={props.onClick}>
         <div> {props.dormName} </div> {/* props.dormName */}
-        <img src={props.src} alt={props.alt} style={ {height: 250, width: 250} }/>
+        <img src={props.src} alt={props.alt} style={ {height: 250, width: 250} } />
         <div >Rating - {props.rating} Star(s)</div> {/* props.Rating */}
     </button>
 };

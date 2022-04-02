@@ -28,15 +28,11 @@ const Schools = () => {
     }, [])
 
     const createRoute1 = (nav, schoolName, dormName) => {
-        //const parentRoute = ReactDOM.findDOMNode() //App.getElementById("PARENT-ROUTE");
         const rt = <Route exact path={nav} 
-                        element={<Profiles.SchoolProfile SchoolName={schoolName} dormName={dormName} />
+                        element={<Profiles.SchoolProfile SchoolName={schoolName} dormName={dormName}
+                        key={ Math.floor(Math.random() * 88000) }/>
                         } />
-        //console.log();
-        //if (parentRoute.contains(rt) == false) {
-        //parentRoute.appendChild(rt);
         return rt;
-        //}
     }
 
     const createButton = (id, style, src, schoolName, nav, key) => {
@@ -47,9 +43,7 @@ const Schools = () => {
                     console.log(nav); } }
                 key={key} />
     }
-    
-    //const [pageList, setPageList] = useState( () => loadAllColleges() )
-    
+
     /* */
     const searchAlgo = () => {
         let listOfSchools = document.getElementById("List of schools");
@@ -88,15 +82,6 @@ const Schools = () => {
                 })
             }
             
-            { /*
-            <Button id="neu-boston" style={ {color: 'white', backgroundColor: 'transparent'} }
-                    src={neu} alt="Northeastern-University.png"
-                    schoolName="Northeastern University" onClick={() => { navigate("/school-page-northeastern") }} />
-            {" \n"}
-            <Button id="bu-boston" style={ {color: 'white', backgroundColor: 'transparent'} }
-                    src={bu} alt="Boston-University.png" 
-                    schoolName="Boston University" onClick={() => { navigate("*") }}/>
-            */}
         </div>
     </div>
 }
