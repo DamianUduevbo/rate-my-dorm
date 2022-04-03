@@ -71,12 +71,12 @@ const Schools = () => {
             <SearchBar id="search-bar" placeholder="Search for a college"
                 onChange={ () => { } } />
         </h1>
-        <div id="List of schools">
+        <div id="List of schools" style={{display: "grid"}}>
             {/* () => loadAllColleges() USE THIS INSTEAD OF THAT \/ */}
             
             {colleges.map( (v) => {
                 console.log("Lima")
-                return createButton( v.id, {color: 'white', backgroundColor: 'transparent'},
+                return createButton( v.id, {color: 'white', backgroundColor: 'transparent', padding: 10},
                                 null, v._name, v.navigate, Math.floor(Math.random() * 88000))
                 })
             }
