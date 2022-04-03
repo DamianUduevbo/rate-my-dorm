@@ -8,10 +8,11 @@ import Schools from './pages/Schools';
 import AddSchool from './pages/AddSchool';
 import * as Profiles from './pages/Profiles';
 import ErrorPage from './pages/ErrorPage';
-import Button from './components/Button';
+// import Button from './components/Button';
 import { db } from './firebase-config';
 import { collection, getDocs, } from 'firebase/firestore';
 import { Post } from './components/Post';
+import * as whtmilk from './components/images/white-hall-milk1.jpeg'
 
 import * as imgs from './components/images/white-hall.png'
 
@@ -35,42 +36,24 @@ function App() {
 
   /*
   */
-  const createRouteDormProfile = (pathName, dormName) => {
-    console.log("Went to the call: " + pathName)
-    return <Route exact path={pathName}
-      element={<Profiles.DormProfile dormName={dormName} />}
-      key={randomKey} />
-  }
-
-  const loopDorms = (dorms, schoolName) => {
-    for (let i in dorms) {
-      if (dorms[i] !== undefined) {
-        let newDormName = dorms[i].dormName.replace(" ", "-")
-        console.log("Sierra: " + newDormName)
-        createRouteDormProfile("/" + newDormName, dorms[i].dormName)
-      }
-    }
-    console.log("Loop Done")
-  }
-
+ 
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          <div>
-            <nav>
+          
+            <nav style = {{position: "fixed", top: 10,  }} >
               <Link to="/" type='button' style={Stylez.navBarLink} >Home</Link> {"       "}
               <Link to="/schools-list" type='button' style={Stylez.navBarLink} >Schools</Link> {"       "}
               <Link to="/add-school" type='button' style={Stylez.navBarLink} >Add Schools (dev)</Link> {"       "}
               <Link to="/demo-posts" type='button' style={Stylez.navBarLink} >Post (dev)</Link> {"       "}
-
             </nav>
-          </div>
+          <div style={{background: "Grey"}}></div>
           <Routes id="PARENT-ROUTE">
             <Route exact path="/" element={<Homepage />} />
             <Route exact path="/schools-list" element={<Schools />} />
             <Route exact path="/add-school" element={<AddSchool />} />
-            <Route exact path="/demo-posts" element={<Post src={imgs} tags={"Freshman \n sorry"}  />} />
+            <Route exact path="/demo-posts" element={<Post src={whtmilk} tags={"#Freshman \n #sorry"}  />} />
 
             {/* ROUTE TO ALL SCHOOLS */}
             {colleges.map((v) => {
@@ -84,7 +67,7 @@ function App() {
                   let newName = v.navigate + "/" + n.dormName.replace(" ", "-")
                   ovrRating = ovrRating + n.rating
 
-                  if (n.desc == undefined) {
+                  if (n.desc === undefined) {
                     console.log("undef: no desc")
                   }
                   console.log("newName " + newName)
@@ -107,13 +90,6 @@ function App() {
               </>
             })}
 
-            {/* ROUTE TO ALL DORMS */}
-            {colleges.map((v) => {
-              if (v.dorms !== undefined || v.dorms !== undefined) {
-                //console.log("Delta1: " + v.dorms[i].dormName);
-                //loopDorms(v.dorms, v._name);
-              }
-            })}
             <Route exact path="*" element={<ErrorPage />} />
           </Routes>
         </header>

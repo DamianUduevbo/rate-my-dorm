@@ -7,7 +7,6 @@ import * as Profiles from './Profiles';
 import { db } from '../firebase-config';
 import { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
-import { list } from 'firebase/storage';
 //#RATIO MY PROFESSOR
 
 
@@ -65,7 +64,7 @@ const Schools = () => {
     
     
 
-    return <div>
+    return <div style = {{position: "fixed"}} >
         {/* EXAMPLE OF HOW THIS WILL LOOK. USE A DB AND AN ALGO TO LOAD THESE */}
         
         <h1>

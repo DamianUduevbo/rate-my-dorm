@@ -1,21 +1,17 @@
 import React from 'react'
 
-import { Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as Buttons from '../components/Button';
 import PostProto from '../components/Post';
 import * as Postings from '../components/Post';
 import * as imgs from '../components/images/white-hall.png'
+import * as wht1 from '../components/images/white-hall-room1.jpeg'
+import * as wht2 from '../components/images/white-hall-room2.jpeg'
+import * as wht3 from '../components/images/white-hall-room3.jpeg'
 
-
-const randomKey = () => {return Math.floor(Math.random() * 88000)}
 
 export const SchoolProfile = (props) => {
   const navigate = useNavigate()
-
-  const createRoute1 = (nav, dormName) => {
-    const rt = <Route exact path={nav} element={<DormProfileProto dormName={dormName} />} />
-    return rt;
-  }
   
   const createDormButton = (schoolName, dormName, img, iD, rating, nav) => {
     return (<Buttons.ButtonFoundDorm id={dormName}
@@ -30,16 +26,19 @@ export const SchoolProfile = (props) => {
   }
 
   let ovrall = 0
-  return (<div>
-    <h1 id='school-name'>{props.SchoolName}</h1>
-    <h1 id='ovr-rating'>Overall Rating: {props.overallRating / props.dormsList.length } / 5</h1>
+  return (<div style={{position:"fixed", top: 0}}>
+    <div style={{padding: 30}}>
+      <h1 id='school-name'>{props.SchoolName}</h1>
+      <h1 id='ovr-rating'>Overall Rating: {props.overallRating / props.dormsList.length } / 5</h1>
+    </div>
     <div>
       {props.dormsList.map( (v) => {
         ovrall = ovrall + v.rating
-        //console.log("Oscar: " + props.SchoolName+"/"+v.dormName.replace(" ", "-") )
+
+        /**/
         return createDormButton(props.SchoolName,
           v.dormName, null, v.id, v.rating,
-          v.dormName.replace(" ", "-"))
+          v.dormName.replace(" ", "-")) 
         })
       }
     </div>
@@ -47,7 +46,7 @@ export const SchoolProfile = (props) => {
 }
 
 export const DormProfile = (props) => {
-  return (<div >
+  return (<div style={{ top: 0}} >
     <h1>
       <p>{props.dormName}</p>
       <div>
@@ -58,12 +57,14 @@ export const DormProfile = (props) => {
     <div>
       Featured Gallery
       <div>
-        <Postings.Post src={props.src} key={Math.floor(Math.random() * 88000)} />
+        <Postings.CondensedPost src={wht1} key={Math.floor(Math.random() * 88000)} />
       </div>
     </div>
     <div>
       Gallery
       <div>
+        <Postings.CondensedPost src={wht2} key={Math.floor(Math.random() * 88000)} />
+        <Postings.CondensedPost src={wht3} key={Math.floor(Math.random() * 88000)} />
         {props.Posts /* THIS IS AN ARRAY OF MAPS */}
       </div>
     </div>
