@@ -9,7 +9,7 @@ const Comment = (props) => {
             <div>{props.sender || "Admin"}: {"\n"+props.text}</div>
             <button>👍🏿 {props.likes} </button>
             <button>👎🏿 {props.dislikes}</button>
-            <div style={{fontSize: 15}}>Gave this dorm a {props.rating}/5 rating</div> 
+            <div style={{fontSize: 15}}>Gave this dorm {props.rating}/5 stars</div> 
         </div>
     </div>
 }

@@ -14,8 +14,6 @@ import { collection, getDocs, } from 'firebase/firestore';
 import { Post } from './components/Post';
 import * as whtmilk from './components/images/white-hall-milk1.jpeg'
 
-import * as imgs from './components/images/white-hall.png'
-
 
 function App() {
   const randomKey = () => {return Math.floor(Math.random() * 88000)}
@@ -25,23 +23,19 @@ function App() {
 
   useEffect(() => {
     const getColleges = async () => {
+
       const data = await getDocs(collegeCollection);
+
       setColleges(data.docs.map((v) => (
-        { ...v.data(), id: v.id })
-      ))
+        { ...v.data(), id: v.id })))
     }
     getColleges();
-
   }, []); // DO NOT REMOVE []
 
-  /*
-  */
- 
   return (
     <Router>
       <div className="App">
         <header className="App-header">
-          
             <nav style = {{position: "fixed", top: 10,  }} >
               <Link to="/" type='button' style={Stylez.navBarLink} >Home</Link> {"       "}
               <Link to="/schools-list" type='button' style={Stylez.navBarLink} >Schools</Link> {"       "}
@@ -107,3 +101,6 @@ export const Stylez = {
 }
 
 export default App;
+
+/*
+*/

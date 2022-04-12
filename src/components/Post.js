@@ -28,7 +28,8 @@ export const Post = (props) => {
 
 
 
-  return <div style={{top: 90, padding: 30}}>
+  return (
+  <div style={{top: 90, padding: 30}}>
     <div style={ {padding: 30} }>
       <img src={props.src} style={ {height: 500, width: 500} } />
       <div id="caption"> Well this was check-unexpected </div>
@@ -52,9 +53,13 @@ export const Post = (props) => {
       {comment}
       <Comment sender="Ezgi" text="modern art😍😍" rating={3.0} likes={4} dislikes={20} key={Math.floor(Math.random() * 88000)}/>
       <Comment sender="Krane" text="It's an interactive installation " rating={2.0} likes={20} dislikes={5} key={Math.floor(Math.random() * 88000)}/>
-      <Comment sender="Dylan" text="better then the used condoms" rating={2.5} likes={0} dislikes={50} key={Math.floor(Math.random() * 88000)}/>
+      <Comment sender="Dylan" text="better then the " rating={2.5} likes={0} dislikes={50} key={Math.floor(Math.random() * 88000)}/>
+      <Comment sender="Dennis" text="The custodial services here are impeccable" rating={5} likes={11} dislikes={0} key={Math.floor(Math.random() * 88000)}/>
+      <Comment sender="Bigman" text="^" rating={2.5} likes={0} dislikes={0} key={Math.floor(Math.random() * 88000)}/>
+      <Comment sender="Ryan Jung" text="Wow that's insane" rating={3.5} likes={2} dislikes={0} key={Math.floor(Math.random() * 88000)}/>
     </li>
   </div>
+  )
 }
 
 export const CondensedPost = (props) => {

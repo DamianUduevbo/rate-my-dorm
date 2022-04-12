@@ -8,6 +8,7 @@ import * as imgs from '../components/images/white-hall.png'
 import * as wht1 from '../components/images/white-hall-room1.jpeg'
 import * as wht2 from '../components/images/white-hall-room2.jpeg'
 import * as wht3 from '../components/images/white-hall-room3.jpeg'
+import * as whtmilk from '../components/images/white-hall-milk1.jpeg'
 
 
 export const SchoolProfile = (props) => {
@@ -57,13 +58,13 @@ export const DormProfile = (props) => {
     <div>
       Featured Gallery
       <div>
-        <Postings.CondensedPost src={wht1} key={Math.floor(Math.random() * 88000)} />
+        <Postings.CondensedPost src={whtmilk} key={Math.floor(Math.random() * 88000)} />
       </div>
     </div>
     <div>
       Gallery
       <div>
-        <Postings.CondensedPost src={wht2} key={Math.floor(Math.random() * 88000)} />
+        <Postings.CondensedPost src={wht1} key={Math.floor(Math.random() * 88000)} />
         <Postings.CondensedPost src={wht3} key={Math.floor(Math.random() * 88000)} />
         {props.Posts /* THIS IS AN ARRAY OF MAPS */}
       </div>
