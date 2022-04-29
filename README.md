@@ -1,4 +1,6 @@
-# Oasis Project ~ Full-Stack web app using ReactJS, React Router and Firebase backend
+# Full-Stack Web App Project from Oasis at NEU.
+
+A full-stack dorm review web app 'RateMyDorm' that uses ReactJS DOM and React Router, with Firebase as a backend. Very little CSS was used.
 
 # Getting Started with Create React App
 
